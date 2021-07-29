@@ -1,0 +1,373 @@
+.header {
+    height: var(--header-height);
+    background-image: linear-gradient(0, #fe6433, #f53e2d);
+}
+
+.header__navbar-list {
+    list-style: none;
+    padding-left: 0px;
+    margin: 4px 0 0 0;
+}
+
+.header__navbar-item--notify:hover .header__notify {
+    display: block;
+}
+
+.header__navbar-item {
+    margin: 0 8px;
+    position: relative;
+    min-height: 26px;
+}
+
+/* thuộc tính trong header_qr đc apply khi hover vào header__navbar-item--has--qr */
+.header__navbar-item--has--qr:hover .header__qr {
+    display: block;
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-item,
+.header__navbar-item-link {
+    font-size: 1.5rem;
+    display: inline-block;
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 200;
+}
+
+.header__navbar-item,
+.header__navbar-item-link,
+.header__navbar--icon--link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.header__navbar-item:hover,
+.header__navbar-icon:hover,
+.header__navbar-item-link:hover {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.header__navbar-item--strong {
+    font-weight: 400;
+}
+
+.header__navbar-item--separate::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-left: 1px solid #fb9086;
+    height: 16px;
+    right: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header__navbar-icon {
+    font-size: 1.4rem;
+    margin: 0 4px;
+    color: white;
+    margin: 0 4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header__navbar-title--no--pointer {
+    cursor: text;
+    color: white;
+}
+
+/* Header QR */
+.header__qr {
+    background-color: var(--white-color);
+    width: 186px;
+    position: absolute;
+    left: 0px;
+    top: 120%;
+    padding: 8px;
+    border-radius: 2px;
+    display: none;
+    animation: fadeIn ease-in 0.2s;
+}
+
+.header__qr--img {
+    width: 100%;
+}
+
+.header__qr--apps {
+    display: flex;
+}
+
+.header__qr--download--img {
+    height: 16px;
+    margin-left: 11px;
+}
+
+.header__qr::before {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0px;
+    top: -16px;
+    content: '';
+    display: block;
+}
+
+/* header notification */
+@keyframes headerNotifyGrowth {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header__notify {
+    position: absolute;
+    top: 118%;
+    width: 404px;
+    background-color: var(--white-color);
+    right: 0px;
+    border: 1px solid #d3d3d3;
+    display: none;
+    /* transform-origin chỉnh trục của animation */
+    transform-origin: 90% top;
+    animation: headerNotifyGrowth ease-in 0.2s;
+    will-change: opacity, transform;
+    cursor: default;
+}
+
+.header__notify::before {
+    content: '';
+    border-style: solid;
+    border-width: 20px 30px;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    right: 12px;
+    top: -30px;
+}
+
+.header__notify::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 90px;
+    height: 20px;
+}
+
+.header__notify--header {
+    height: 40px;
+    background-color: var(--white-color);
+}
+
+.header__notify--header h3 {
+    color: #999;
+    margin: 0;
+    font-weight: 400px;
+    font-size: 1.4rem;
+    line-height: 40px;
+    margin-left: 12px;
+    cursor: text;
+    /* user-select: none; không cho người dùng copy*/
+}
+
+.header__notify--item {
+}
+
+.header__notify--item:hover {
+    background-color: #f1f1f1;
+}
+
+.header__notify--item--readed {
+    background-color: rgba(238, 75, 43, 0.08);
+}
+
+.header__notify--list {
+    padding-left: 0px;
+}
+
+.header__notify--link {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+}
+
+.header__notify--image {
+    width: 48px;
+    object-fit: contain;
+}
+
+.header__notify--info {
+    margin-left: 12px;
+}
+
+.header__notify--name {
+    font-size: 1.4rem;
+    color: var(--black-color);
+    font-weight: 400;
+    line-height: 1.8rem;
+    margin: 8px 0;
+}
+
+.header__notify--description {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin: 8px 0;
+}
+
+.header__notify--footer {
+    display: flex;
+}
+
+.header__notify--footer:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.header__notify--footer--btn {
+    color: var(--text-color);
+    padding: 12px 0;
+    width: 100%;
+    font-weight: 400px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+/* modal */
+.modal {
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* z-index:  */
+}
+
+.modal__body {
+    position: relative;
+    height: 500px;
+    width: 500px;
+    margin: auto;
+    background-color: white;
+}
+
+/* authen */
+.modal {
+    display: none;
+    border-radius: 2px;
+}
+
+.auth--form__container {
+    padding: 0 32px;
+}
+.auth--form__switch--btn {
+    top: 20px;
+}
+.auth--form__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.auth--form__heading {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.auth--form__switch--btn {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.auth--form__form {
+    margin-top: 8px;
+}
+
+.auth--form__group {
+    padding: 12px 0;
+}
+
+.auth--form__input {
+    line-height: 40px;
+    width: 100%;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    outline: none;
+}
+
+.auth--form__policy {
+    padding-left: 20px;
+    text-align: center;
+}
+
+.auth--form__policy {
+    font-size: 1.2rem;
+}
+
+.auth--form__policy--link {
+    color: var(--primary-color);
+}
+
+.auth--form__control {
+    margin-top: 60px;
+    padding-left: 140px;
+}
+
+.auth--form__socials {
+    margin-top: 30px;
+    line-height: 48px;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.btn.btn--with-icon {
+    padding: 8px 32px 8px 16px;
+    margin-left: 5px;
+    width: 200px;
+}
+
+.btn--with-icon--fb {
+    background-color: blue;
+    color: var(--white-color);
+}
+
+.btn--with-icon--gg {
+    background-color: white;
+    color: black;
+}
+
+.fa-facebook-square {
+    padding-right: 16px;
+}
+
+.fa-google-plus-g {
+    padding-right: 16px;
+}
+
+/* header with search */
+.header-with-search {
+   height: var(--header-with-search-height);
+}
