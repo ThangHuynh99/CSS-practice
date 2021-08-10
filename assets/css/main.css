@@ -7,6 +7,7 @@
     list-style: none;
     padding-left: 0px;
     margin: 4px 0 0 0;
+    display: flex;
 }
 
 .header__navbar-item--notify:hover .header__notify {
@@ -18,6 +19,93 @@
     margin: 0 8px;
     position: relative;
     min-height: 26px;
+}
+
+/* user info */
+.header__navbar-user {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header__navbar-user:hover .header__navbar-user-menu {
+    display: block;
+}
+
+.header__navbar-user-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.header__navbar-user-name {
+    margin-left: 4px;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.header__navbar-user-menu {
+    position: absolute;
+    width: 160px;
+    z-index: 1;
+    padding: 0 0;
+    top: calc(100% + 4px);
+    right: 0;
+    background-color: white;
+    border-radius: 2px;
+    list-style: none;
+    box-shadow: 0 1px 2px #e0e0e0;
+    display: none;
+}
+
+.header__navbar-user-item {
+}
+
+.header__navbar-user-item a {
+    color: black;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 8px 16px;
+    display: block;
+}
+
+.header__navbar-user-item a:hover {
+    background-color: #fafafa;
+}
+
+.header__navbar-user-item a:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.header__navbar-user-item a:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.header__navbar-user-menu::before {
+    content: '';
+    border-style: solid;
+    border-width: 20px 30px;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    right: 12px;
+    top: -30px;
+}
+
+.header__navbar-user-menu::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    width: 100%;
+    height: 8px;
+}
+
+.header__navbar-user-item--separate {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* thuộc tính trong header_qr đc apply khi hover vào header__navbar-item--has--qr */
@@ -380,11 +468,24 @@ a {
     width: 200px;
 }
 
+.header__logo-link {
+    text-decoration: none;
+    color: transparent;
+}
+
 .header__logo--img {
     width: 150px;
 }
 
 .header__search {
+    flex: 1px;
+    /* background-color: white;
+    border-radius: 2px;
+    height: 40px;
+    display: flex; */
+}
+
+.header__search-wrap {
     flex: 1px;
     background-color: white;
     border-radius: 2px;
@@ -434,6 +535,23 @@ a {
     color: white;
 }
 
+.header__search-category {
+    margin-top: 5px;
+}
+
+.header__search-category a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--white-color);
+}
+
+.header__search-category-item {
+    margin-left: 13px;
+}
+
+.header__search-category-item:first-child {
+    margin-left: 0;
+}
 /* search history  */
 .header_search--history {
     position: absolute;
@@ -501,6 +619,7 @@ a {
 
 .header__cart-list {
     position: absolute;
+    z-index: 1;
     top: calc(100% + 6px);
     right: -3px;
     background-color: white;
@@ -564,8 +683,8 @@ a {
     background-color: white;
     color: var(--primary-color);
     font-size: 1.4rem;
-    border-radius:  10px;
-    border: 2px solid #EE4D2D;
+    border-radius: 10px;
+    border: 2px solid #ee4d2d;
     top: -4px;
     right: -4px;
 }
@@ -633,7 +752,7 @@ a {
 
 .header__cart-item-quantity {
     font-size: 1.2rem;
-    color: #757575
+    color: #757575;
 }
 
 .header__cart-item-body {
@@ -645,7 +764,7 @@ a {
 .header__cart-item-description {
     font-size: 1.2rem;
     font-weight: 300;
-    color: #757575
+    color: #757575;
 }
 
 .header__cart-item-delete {
@@ -670,5 +789,136 @@ a {
 
 .header__cart-view:hover {
     background-color: #f05d41;
+}
 
+/* app__container */
+.app__container {
+    background-color: #f5f5f5;
+}
+
+.category {
+    background-color: white;
+    border-radius: 2px;
+}
+
+.category__heading {
+    margin-top: 0;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.category__heading-icon {
+    font-size: 1.4rem;
+    margin-right: 4px;
+}
+
+.categpry-list {
+    list-style: none;
+    font-size: 1.5rem;
+    padding: 0 0 8px 0;
+    margin-left: 10px;
+}
+
+.category-item {
+}
+
+.category-item__link {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px 16px;
+    display: block;
+    transition: right linear 0.1s;
+    right: 0;
+}
+
+.category-item__link:hover {
+    color: var(--primary-color);
+    right: -4px;
+}
+
+.category-item--active .category-item__link {
+    color: var(--primary-color);
+}
+
+.category-item--active .category-item__link::before {
+    content: '';
+    top: 50%;
+    border: 4px solid;
+    left: 8px;
+    border-color: transparent transparent transparent var(--primary-color);
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+/* home sort + filter */
+.home-filter {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 12px 22px;
+    border-radius: 2px;
+}
+
+.home-filter__page {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.home-filter__label {
+    color: #555555;
+    font-size: 1.4rem;
+    margin-right: 16px;
+}
+
+.home-filter__btn {
+    margin-right: 12px;
+    min-width: 90px;
+}
+
+.home-filer__page-num {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-right: 22px;
+}
+
+.home-filer__page-current {
+    color: var(--primary-color);
+}
+
+.home-filter__page-control {
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    width: 72px;
+    height: 36px;
+}
+
+.home-filter__page-btn {
+    flex: 1;
+    display: flex;
+    background-color: white;
+    text-decoration: none;
+}
+
+.home-filter__page-icon {
+    margin: auto;
+    font-size: 1.4rem;
+    color: #555;
+}
+
+.home-filter__page-btn:first-child {
+    border-right: 1px solid #eee;
+}
+
+.home-filter__page-btn-disable {
+    background-color: #f9f9f9;
+    cursor: default;
+}
+
+.home-filter__page-btn-disable .home-filter__page-icon {
+    color: #ccc;
 }
