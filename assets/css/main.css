@@ -809,6 +809,7 @@ a {
 /* app__container */
 .app__container {
     background-color: #f5f5f5;
+    border-bottom: 4px solid var(--primary-color);
 }
 
 .category {
@@ -960,7 +961,7 @@ a {
 /* product item */
 
 .home-product {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .home-product-item {
@@ -1147,4 +1148,10 @@ i.home-product-item__like-icon-fill {
     font-size: 1.2rem;
     color: var(--text-color);
     margin-left: 4px;
+}
+
+
+/* pagination */
+.home-product__pagination {
+    margin-bottom: 32px;
 }
