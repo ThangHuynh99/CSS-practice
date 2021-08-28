@@ -8,6 +8,7 @@
     --navbar-height: 34px;
     --header-height: 120px;
     --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+    --header-sort-bar-height: 46px;
 }
 
 * {
@@ -32,15 +33,6 @@ p {
 }
 
 /* Reponsive  */
-.grid {
-    width: 1200px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.grid__full-width {
-    width: 100px;
-}
 
 .grid__row {
     display: flex;
